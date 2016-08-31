@@ -20,7 +20,7 @@ function convertForm(msAccessForm){
 function convertElement(msAcessFormElement){
   var re = /Begin\s*(.*)\n((.|\n)*)\nEnd/i
   var found = msAcessFormElement.match(re);
-  if(found.length > 1){
+  if(found !== null && found.length > 1){
     if(found[1] == "Form"){
       return '<div class="ms-access-form">' + convertElement(found[2]) + '</div>';
     }
