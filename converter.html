@@ -37,7 +37,7 @@ function convertElement(msAcessFormElement, level){
     if(elementData.match(re) === null || elementData.match(re).index < elementData.match(re2).index){
         return prefix + '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData, level+1) + '</div>\n';
     } else {
-        return prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData, level+1) + '\n';
+        return prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData, level);
     }
   }
   return prefix + msAcessFormElement;//nothing to convert  
