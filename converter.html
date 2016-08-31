@@ -30,16 +30,9 @@ function convertElement(msAcessFormElement){
     var elementData = found[2];
     if(elementName == '')elementName = 'element';
     if(elementData.match(re) === null || elementData.match(re) > elementData.match(re2)){
-      if(elementName == "Form"){
-        return '<b>' + getCaption(elementData) + '</b>\n' +
-        '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">\n' +
-        convertElement(elementData) +
-        '\n</div>\n';
-      } else {
         return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '</div>\n';
-      }
     } else {
-      
+        return '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData) + '\n';
     }
   }
   return msAcessFormElement;//nothing to convert  
