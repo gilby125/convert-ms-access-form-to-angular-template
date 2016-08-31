@@ -14,7 +14,7 @@ function convert(){
 function convertForm(msAccessForm){
   var re = /(Begin Form(.|)\n*End)\nCodeBehindForm/i;
   var found = msAccessForm.match(re);
-  return 'data:' + found + 'original:' + msAcessForm;
+  return 'data:' + found + 'original:' + msAccessForm;
 }
 </script>
 </html>
