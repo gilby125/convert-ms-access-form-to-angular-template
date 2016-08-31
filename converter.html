@@ -33,7 +33,7 @@ function convertElement(msAcessFormElement){
       convertElement(elementData) +
       '</div>';
     } else {
-      return convertElement(elementData);
+      return '<div>' + convertElement(elementData) + '</div>';
     }
   }
   return msAcessFormElement;//nothing to convert  
