@@ -41,9 +41,9 @@ function convertElement(msAcessFormElement){
 var twipX = 36/576;//twip to 36 pixels in 1 cm
 var twipY = 36/576;//twip to 36 pixels in 1 cm
 
-function getWidth(msAcessFormElementData){
+function getWidth(elementData){
   var re = /Width\s=(\d*)/i;
-  var found = msAcessFormElementData.match(re);
+  var found = elementData.match(re);
   if(found !== null && found.length > 1){
     return found[1]*twipX;
   }
