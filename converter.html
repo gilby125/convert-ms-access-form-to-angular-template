@@ -29,12 +29,12 @@ function convertElement(msAcessFormElement){
     var elementData = found[3];
     if(elementName == '')elementName = 'element';
     if(elementName == "Form"){
-      return '<b>' + getCaption(elementData) + '</b>' +
-      '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">' +
+      return '<b>' + getCaption(elementData) + '</b>\n' +
+      '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">\n' +
       convertElement(elementData) +
-      '</div>';
+      '\n</div>\n';
     } else {
-      return '<div class="ms-access-' + elementName.toLowerCase() + '">' + convertElement(elementData) + '</div>';
+      return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '\n</div>\n';
     }
   }
   return msAcessFormElement;//nothing to convert  
