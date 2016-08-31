@@ -2,9 +2,17 @@
 <p>Convert MS Access Form to Angular JS template</p>
 <p>Enter MS Access Form text here:</p>
 <div><textarea id="ms-access-form"></textarea></div>
-<button type="button">Convert to Angular JS template</button>
+<button type="button" onclick="convert();">Convert to Angular JS template</button>
 <div><textarea id="angular-js-template"></textarea></div>
 <script type="javascript">
+function convert(){
+  var msAccessForm = document.getElementById('ms-access-form').value;
+  var template = convertForm(msAccessForm);
+  document.getElementById('angular-js-template').value = template;
+}
 
+function convertForm(msAccessForm){
+  return 'test';
+}
 </script>
 </html>
