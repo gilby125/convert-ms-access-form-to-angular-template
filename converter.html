@@ -27,15 +27,15 @@ function convertElement(msAcessFormElement, level){
   }
   var re = /Begin *(.*)\n((.*\n*)*)/i;
   var re2 = /End/i;
-  var found;
   var result = "";
   var elementData = msAcessFormElement;
-  found = elementData.match(re)
+  var found = elementData.match(re)
   while (found !== null){
       var elementName = found[1];
       elementData = found[2];
       if(elementName == '')elementName = 'element';
-      if(elementData.match(re) === null || elementData.match(re).index < elementData.match(re2).index){
+      found = elementData.match(re);
+      if(found === null || found.index < elementData.match(re2).index){
           result += 
             prefix + '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + 
             convertElement(elementData, level+1) + 
@@ -45,7 +45,6 @@ function convertElement(msAcessFormElement, level){
             prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + 
             convertElement(elementData, level);
       }
-    found = elementData.match(re)
   };
   return result;
 }
