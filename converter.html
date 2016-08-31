@@ -32,6 +32,8 @@ function convertElement(msAcessFormElement){
       '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">' +
       convertElement(elementData) +
       '</div>';
+    } else {
+      return convertElement(elementData);
     }
   }
   return msAcessFormElement;//nothing to convert  
