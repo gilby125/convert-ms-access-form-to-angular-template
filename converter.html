@@ -21,7 +21,7 @@ function convertForm(msAccessForm){
 
 function convertElement(msAcessFormElement){
   console.log(msAcessFormElement,'msAcessFormElement');
-  var re = /(\n|^)\s*Begin\s*(.*)\n((.|\n)*)\n\s*End/i;
+  var re = /(\n|^)\s*Begin *(.*)\n((.|\n)*)\n\s*End/i;
   var found = msAcessFormElement.match(re);
   console.log(found,'found');
   if(found !== null && found.length > 1){
