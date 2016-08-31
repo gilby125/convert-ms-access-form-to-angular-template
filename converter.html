@@ -30,7 +30,8 @@ function convertElement(msAcessFormElement, level){
   var found;
   var result = "";
   var elementData = msAcessFormElement;
-  while (found = elementData.match(re)){
+  found = elementData.match(re)
+  while (found !== null){
       var elementName = found[1];
       elementData = found[2];
       if(elementName == '')elementName = 'element';
@@ -44,6 +45,7 @@ function convertElement(msAcessFormElement, level){
             prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + 
             convertElement(elementData, level);
       }
+    found = elementData.match(re)
   };
   return result;
 }
