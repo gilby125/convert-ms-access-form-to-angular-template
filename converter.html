@@ -27,6 +27,7 @@ function convertElement(msAcessFormElement){
   if(found !== null && found.length > 1){
     var elementName = found[2];
     var elementData = found[3];
+    if(elementName == '')elementName = 'element';
     if(elementName == "Form"){
       return '<b>' + getCaption(elementData) + '</b>' +
       '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">' +
