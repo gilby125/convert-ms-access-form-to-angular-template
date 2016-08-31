@@ -33,7 +33,7 @@ function convertElement(msAcessFormElement){
       convertElement(elementData) +
       '</div>';
     } else {
-      return '<div>' + convertElement(elementData) + '</div>';
+      return '<div class="ms-access-' + elementName.toLowerCase() + '">' + convertElement(elementData) + '</div>';
     }
   }
   return msAcessFormElement;//nothing to convert  
