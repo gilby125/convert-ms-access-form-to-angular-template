@@ -22,19 +22,24 @@ function convertForm(msAccessForm){
 function convertElement(msAcessFormElement){
   console.log(msAcessFormElement,'msAcessFormElement');
   var re = /Begin *(.*)\n((.*\n*)*)/i;
+  var re2 = /End/i;
   var found = msAcessFormElement.match(re);
   console.log(found,'found');
   if(found !== null && found.length > 1){
     var elementName = found[1];
     var elementData = found[2];
     if(elementName == '')elementName = 'element';
-    if(elementName == "Form"){
-      return '<b>' + getCaption(elementData) + '</b>\n' +
-      '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">\n' +
-      convertElement(elementData) +
-      '\n</div>\n';
+    if(elementData.match(re) === null || elementData.match(re) > elementData.match(re2)){
+      if(elementName == "Form"){
+        return '<b>' + getCaption(elementData) + '</b>\n' +
+        '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">\n' +
+        convertElement(elementData) +
+        '\n</div>\n';
+      } else {
+        return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '</div>\n';
+      }
     } else {
-      return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '\n</div>\n';
+      
     }
   }
   return msAcessFormElement;//nothing to convert  
