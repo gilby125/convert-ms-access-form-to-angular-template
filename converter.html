@@ -35,12 +35,12 @@ function convertElement(msAcessFormElement, level){
     var elementData = found[2];
     if(elementName == '')elementName = 'element';
     if(elementData.match(re) === null || elementData.match(re).index < elementData.match(re2).index){
-        return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData, level+1) + '</div>\n';
+        return prefix + '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData, level+1) + '</div>\n';
     } else {
-        return '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData, level+1) + '\n';
+        return prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData, level+1) + '\n';
     }
   }
-  return msAcessFormElement;//nothing to convert  
+  return prefix + msAcessFormElement;//nothing to convert  
 }
 
 var twipX = 36/576;//twip to 36 pixels in 1 cm
