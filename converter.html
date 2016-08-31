@@ -12,9 +12,9 @@ function convert(){
 }
 
 function convertForm(msAccessForm){
-  re = /(Begin Form(.|)\n*End)\nCodeBehindForm/i;
-  found = msAccessForm.match(re);
-  return 'data' + found;
+  var re = /(Begin Form(.|)\n*End)\nCodeBehindForm/i;
+  var found = msAccessForm.match(re);
+  return 'data:' + found + 'original:' + msAcessForm;
 }
 </script>
 </html>
