@@ -21,12 +21,27 @@ function convertElement(msAcessFormElement){
   var re = /Begin\s*(.*)\n((.|\n)*)\nEnd/i
   var found = msAcessFormElement.match(re);
   if(found !== null && found.length > 1){
-    if(found[1] == "Form"){
-      return '<div class="ms-access-form">' + convertElement(found[2]) + '</div>';
+    var elementName = found[1];
+    var elementData = found[2];
+    if(elementName == "Form"){
+      return '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">' + convertElement(elementData) + '</div>';
     }
   } else {
     return msAcessFormElement;//nothing to convert  
   }
 }
+
+var twipX = 36/576;//twip to 36 pixels in 1 cm
+var twipY = 36/576;//twip to 36 pixels in 1 cm
+
+function getWidth(msAcessFormElementData){
+  var re = /Width\s=(\d*)/i;
+  var found = msAcessFormElementData.match(re);
+  if(found !== null && found.length > 1){
+    return found[1]*twipX;
+  }
+  return 0;
+}
+
 </script>
 </html>
