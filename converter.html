@@ -28,10 +28,8 @@ function convertElement(msAcessFormElement){
     var elementName = found[1];
     var elementData = found[2];
     if(elementName == "Form"){
-      return 
-      '<b>' + getCaption(elementData) + '</b>' +
-      '<div class="ms-access-form" ' +
-      'style="width:' + getWidth(elementData) + 'px">' +
+      return '<b>' + getCaption(elementData) + '</b>' +
+      '<div class="ms-access-form" style="width:' + getWidth(elementData) + 'px">' +
       convertElement(elementData) +
       '</div>';
     }
@@ -54,11 +52,11 @@ function getWidth(elementData){
 
 function getCaption(elementData){
   var re = /Caption\s=\s*\"(.*)\"/i;
-    var found = elementData.match(re);
-    if(found !== null && found.length > 1){
-      return found[1];
-    }
-    return '';  
+  var found = elementData.match(re);
+  if(found !== null && found.length > 1){
+    return found[1];
+  }
+  return '';  
 }
 
 </script>
