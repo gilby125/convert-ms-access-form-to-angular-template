@@ -42,10 +42,8 @@ function convertElement(msAcessFormElement, level){
             prefix + '</div>\n';
       } else {
           result +=
-            prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + 
-            convertElement(elementData, level);
+            prefix + '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n';
       }
-      break;
   };
   return result;
 }
