@@ -21,12 +21,12 @@ function convertForm(msAccessForm){
 
 function convertElement(msAcessFormElement){
   console.log(msAcessFormElement,'msAcessFormElement');
-  var re = /(\n|^)\s*Begin *(.*)\n((.|\n)*)\n\s*End/i;
+  var re = /Begin *(.*)\n/i;
   var found = msAcessFormElement.match(re);
   console.log(found,'found');
   if(found !== null && found.length > 1){
-    var elementName = found[2];
-    var elementData = found[3];
+    var elementName = found[1];
+    var elementData = found[0];
     if(elementName == '')elementName = 'element';
     if(elementName == "Form"){
       return '<b>' + getCaption(elementData) + '</b>\n' +
