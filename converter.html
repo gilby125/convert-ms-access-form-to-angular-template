@@ -29,7 +29,7 @@ function convertElement(msAcessFormElement){
     var elementName = found[1];
     var elementData = found[2];
     if(elementName == '')elementName = 'element';
-    if(elementData.match(re) === null || elementData.match(re) < elementData.match(re2)){
+    if(elementData.match(re) === null || elementData.match(re).index < elementData.match(re2).index){
         return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '</div>\n';
     } else {
         return '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData) + '\n';
