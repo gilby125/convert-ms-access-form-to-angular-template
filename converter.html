@@ -12,7 +12,7 @@ function convert(){
 }
 
 function convertForm(msAccessForm){
-  var re = /(Begin Form(.|)\n*End)\nCodeBehindForm/i;
+  var re = /(Begin Form(.|\n)*End)\nCodeBehindForm/i;
   var found = msAccessForm.match(re);
   console.log(found);
   return 'data:' + found + 'original:' + msAccessForm;
