@@ -19,7 +19,12 @@ function convertForm(msAccessForm){
   return convertElement(found[1]);
 }
 
-function convertElement(msAcessFormElement){
+function convertElement(msAcessFormElement, level){
+  level = level || 0;
+  var prefix = "";
+  for(var i=1;i<level;i++){
+    prefix += " ";
+  }
   console.log(msAcessFormElement,'msAcessFormElement');
   var re = /Begin *(.*)\n((.*\n*)*)/i;
   var re2 = /End/i;
@@ -30,9 +35,9 @@ function convertElement(msAcessFormElement){
     var elementData = found[2];
     if(elementName == '')elementName = 'element';
     if(elementData.match(re) === null || elementData.match(re).index < elementData.match(re2).index){
-        return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData) + '</div>\n';
+        return '<div class="ms-access-' + elementName.toLowerCase() + '">\n' + convertElement(elementData, level+1) + '</div>\n';
     } else {
-        return '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData) + '\n';
+        return '<div class="ms-access-' + elementName.toLowerCase() + '"></div>\n' + convertElement(elementData, level+1) + '\n';
     }
   }
   return msAcessFormElement;//nothing to convert  
