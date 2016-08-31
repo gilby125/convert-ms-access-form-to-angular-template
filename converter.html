@@ -20,7 +20,7 @@ function convertForm(msAccessForm){
 }
 
 function convertElement(msAcessFormElement){
-  var re = /\n\s*Begin\s*(.*)\n((.|\n)*)\n\s*End/i;
+  var re = /\n*\s*Begin\s*(.*)\n((.|\n)*)\n\s*End/i;
   var found = msAcessFormElement.match(re);
   if(found !== null && found.length > 1){
     var elementName = found[1];
