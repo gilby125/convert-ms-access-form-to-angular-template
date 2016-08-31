@@ -28,10 +28,12 @@ function convertElement(msAcessFormElement){
     var elementName = found[1];
     var elementData = found[2];
     if(elementName == "Form"){
-      return '<div class="ms-access-form" ' 
-      + 'style="width:' + getWidth(elementData) + 'px">' 
-      + convertElement(elementData) 
-      + '</div>';
+      return 
+      '<b>' + getCaption(elementData) + '</b>' +
+      '<div class="ms-access-form" ' +
+      'style="width:' + getWidth(elementData) + 'px">' +
+      convertElement(elementData) +
+      '</div>';
     }
   } else {
     return msAcessFormElement;//nothing to convert  
@@ -48,6 +50,15 @@ function getWidth(elementData){
     return found[1]*twipX;
   }
   return 0;
+}
+
+function getCaption(elementData){
+  var re = /Caption\s=\s*\"(.*)\"/i;
+    var found = elementData.match(re);
+    if(found !== null && found.length > 1){
+      return found[1];
+    }
+    return '';  
 }
 
 </script>
